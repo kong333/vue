@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue_Hello</title>
+    <script src="../vue_dev.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Let's hear some stories!</h1>
+        <ul class="list-group">
+            <li v-for="(val, key, idx) in story" class="list-group-item">
+                {{idx}} : {{key}} : {{val}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var story =
+        {
+            plot : 'someone ate my chocolate...',
+            writer : 'John',
+            upvotes : 47
+
+        }
+    new Vue({
+        el:".container"
+        ,data:{
+            story : story
+        }
+    })
+</script>
+</html>

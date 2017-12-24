@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>People Of Vue</title>
+</head>
+<script src="../vue_dev.js"></script>
+<body>
+    <div class="container">
+        <h1>People Of Vue</h1>
+        <ul>
+            <li v-for="(mayor, index) in mayors" class="list-group-item">
+                {{mayor.name}} {{mayor.vote}}
+                <button @click="fun_vote(index)">Vote</button>
+            </li>
+        </ul>
+        <button @click="fun_reset">
+            press 'delete' to reset
+        </button>
+        <h2>Our mayor is {{bestMayor}}!</h2>
+    </div>
+</body>
+<script>
+    var mayors = [
+        {
+            name : 'Mr.Black',
+            vote : 0
+        },
+        {
+            name : 'Mr.Pink',
+            vote : 0
+        },
+        {
+            name : 'Mr.White',
+            vote : 0
+        },
+        {
+            name : 'Mr.Brown',
+            vote : 0
+        },
+
+    ]
+    new Vue({
+        el:'.container',
+        data:{
+            mayors : mayors
+        },
+        methods:{
+            fun_vote : function(idx){
+                this.mayors[idx].vote++;
+
+                this.mayors.sort(function(a, b){
+                    return b['vote'] - a['vote']
+                })
+            },
+            fun_reset : function(){
+                this.mayors.map(function(obj){
+                    obj.vote = 0;
+                })
+            }
+        },
+        computed:{
+            bestMayor : function(){
+                if(this.mayors[0].vote == 0)
+                    return ''
+                else
+                    return this.mayors[0].name;
+            }
+        }
+    })
+</script>
+</html>

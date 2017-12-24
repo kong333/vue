@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue_Hello</title>
+    <script src="../vue_dev.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 v-show="!message">You must send a message for help!</h1>
+        <textarea v-model="message" class="form-control"></textarea>
+        <button v-show="message" class="btn-primary">
+            Send word to allies for help!
+        </button>
+        <pre>
+            {{$data}}
+        </pre>
+    </div>
+</body>
+<script>
+    var data = {
+        message : 'Our king is dead!'
+    }
+    var app = new Vue({
+        el:'#app',
+        data:data
+    })
+
+
+</script>
+</html>

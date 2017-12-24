@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Upvote</title>
+</head>
+<script src="../vue_dev.js"></script>
+<body>
+    <div class="container">
+        <!--<button v-on:click="upvote" class="col btn btn-primary">
+            Upvote! {{upvotes}}
+        </button>-->
+        <button @click="upvote" class="col btn btn-primary">
+            Upvote! {{upvotes}}
+        </button>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'.container',
+        data:{
+            upvotes:0
+        },
+        methods:{
+            upvote : function(){
+                this.upvotes++;
+            }
+        }
+    })
+</script>
+</html>

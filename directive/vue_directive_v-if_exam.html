@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue_Hello</title>
+    <script src="../vue_dev.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="sex=='female'">Hello, Miss {{name}}</h1>
+        <h1 v-else-if="sex=='male'">Hello, Mister {{name}}</h1>
+        <h1 v-else>So you can't decide, Fine!</h1>
+        <p>Enter your Gender:</p>
+        <select v-model="sex">
+            <option>select</option>
+            <option value="female">female</option>
+            <option value="male">male</option>
+        </select>
+        <p>Enter your name</p>
+        <input v-model="name">
+        <pre>
+            {{$data}}
+        </pre>
+    </div>
+</body>
+<script>
+    var data = {
+        sex:'',
+        name:''
+    }
+    var app = new Vue({
+        el:'#app',
+        data:data
+    })
+
+
+</script>
+</html>
